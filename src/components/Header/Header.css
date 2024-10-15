@@ -1,0 +1,25 @@
+.header {
+    width: 400px;
+    height: 8%;
+    background-color: #1E3E62;
+    padding: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 10px;
+}
+
+.header p {
+    font-weight: 500;
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.icon {
+    margin-left: 10px; 
+}

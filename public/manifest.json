@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn AutoConnect",
+  "version": "1.0.0",
+  "description": "LinkedIn Automation Chrome extension",
+  "action": {
+    "default_popup": "index.html",
+    "default_popup_height": 500,
+    "default_popup_width": 400
+  },
+  "permissions": ["tabs", "scripting", "activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "32": "linkedin-50.png",
+    "48": "linkedin-100.png",
+    "128": "linkedin-150.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
