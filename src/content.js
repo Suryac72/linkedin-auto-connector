@@ -3,8 +3,8 @@ Linkedin = {
 
   config: {
     scrollDelay: 3000,
-    actionDelay: 3000,
-    nextPageDelay: 3000,
+    actionDelay: 5000,
+    nextPageDelay: 5000,
     maxRequests: -1,
     totalRequestsSent: 0,
     addNote: false,
@@ -128,5 +128,10 @@ Linkedin = {
   },
 };
 
-
-Linkedin.init({}, Linkedin.config);
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.type === "startConnecting") {
+    Linkedin.init({}, Linkedin.config);
+  } else if (request.type === "stopConnecting") {
+    Linkedin.stop();
+  }
+});

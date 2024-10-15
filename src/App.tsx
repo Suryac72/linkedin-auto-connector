@@ -30,30 +30,18 @@ function App() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]) {
         if (!isConnecting) {
-          // Start connecting
-          chrome.scripting.executeScript({
-            target: { tabId: tabs[0].id! },
-            files: ["content.js"],
-          });
-
+          // Send a message to the content script to start connecting
+          chrome.tabs.sendMessage(tabs[0].id!, { type: "startConnecting" });
           setIsConnecting(true);
         } else {
-          // Stop connecting
-          chrome.scripting.executeScript({
-            target: { tabId: tabs[0].id! },
-            func: stopConnecting,
-          });
-
+          // Send a message to stop connecting
+          chrome.tabs.sendMessage(tabs[0].id!, { type: "stopConnecting" });
           setIsConnecting(false);
         }
       }
     });
   };
 
-  // Stop function for content script
-  const stopConnecting = () => {
-    chrome.runtime.sendMessage({ type: "stopConnecting" });
-  };
 
   return (
     <div className="App">

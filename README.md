@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# LinkedIn Auto Connector Chrome Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Chrome extension that automatically sends connection requests to a list of people on LinkedIn search results. For example, you can search for all CEOs in Bangalore on LinkedIn, and the extension will automatically press the "Connect" button for each profile on the first page of the search results. The extension waits a random amount of time between 5-10 seconds before sending each connection request to avoid detection.
 
-Currently, two official plugins are available:
+The extension is implemented using **React**, **Vite**, and **TypeScript**. Unit tests for UI components are also included.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Automatically sends connection requests to people in a LinkedIn search.
+- Works on the first page of LinkedIn search results.
+- Random delay (between 5-10 seconds) between each connection request.
+- Supports manual start and stop of the connection process.
+- Built with modern web technologies: React, Vite, and TypeScript.
+- Includes unit tests for React UI components.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Make sure you have the following tools installed:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Node.js**: v14 or above
+- **npm** ( Node Package manager )
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   git clone https://github.com/suryac72/linkedin-auto-connector.git
+   ```
+2. Install Packages:
+
+   ```bash
+   npm install
+   ```
+3. Run Build Script:
+
+    ```bash
+    npm run build
+    ```
+4. Open Google Chrome and type `chrome://extensions/` on place of URL
+
+5. On Top-Right Corner, There is one toggle of `Developer Mode`, Turn it on
+
+6. After that, there is one option of `load unpacked` on top-left of the screen. Upload dist folder on it. After that you will see `Linkedin AutoConnect Extension` on your extension lists
+
+7. Now, Go to `linkedin.com` and search for recruiters and enable the extension. It start sending connection request automatically as per problem statement
