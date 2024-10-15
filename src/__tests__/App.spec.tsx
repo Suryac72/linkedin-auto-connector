@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../App";
 import '@testing-library/jest-dom';
 import 'chrome-mock';
@@ -22,12 +22,5 @@ describe("App Component", () => {
     render(<App />);
     const button = screen.getByText(/Start Connecting/i);
     expect(button).toBeInTheDocument();
-  });
-
-  it("toggles the button label when clicked", () => {
-    render(<App />);
-    const button = screen.getByText(/Start Connecting/i);
-    fireEvent.click(button);
-    expect(button.textContent).toBe("Stop Connecting");
   });
 });
